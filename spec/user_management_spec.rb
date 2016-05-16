@@ -7,4 +7,8 @@ feature 'Users' do
       expect(User.first.email).to eq 'bob@me.com'
     end
 
+    scenario 'Can login' do
+      sign_up
+    end
+
 end

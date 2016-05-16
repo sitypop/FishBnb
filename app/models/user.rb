@@ -1,12 +1,23 @@
+require 'bcrypt'
+
 class User
   include DataMapper:: Resource
+
+  attr_reader :password
+  attr_accessor :password_confirmation
+
+  validates_confirmation_of :password
 
   property :id, Serial
   property :first_name,   String, required: true
   property :last_name, String, required: true
   property :username, String, required: true, :unique => true
   property :email, String, required: true, :unique => true
-  property :password, String, required: true
-  property :confirm_password, String, required: true
+  property :password_digest, String, length: 120
+
+  def password=(password)
+    @password = password
+    self.password_digest = BCrypt::Password.create(password)
+  end
 
 end

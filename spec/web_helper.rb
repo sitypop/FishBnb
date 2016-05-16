@@ -6,6 +6,6 @@ def sign_up
   fill_in :username,    with: 'bob1'
   fill_in :email,       with: 'bob@me.com'
   fill_in :password,    with: 'minions'
-  fill_in :confirm_password, with: 'minions'
+  fill_in :password_confirmation, with: 'minions'
   click_button 'Sign up'
 end
