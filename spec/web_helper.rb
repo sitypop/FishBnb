@@ -10,7 +10,7 @@ def sign_up
   click_button 'Sign up'
 end
 
-def sign_in(username:, password:)
+def login(username:, password:)
   visit 'sessions/new'
   expect(page.status_code).to eq 200
   fill_in :username, with: username

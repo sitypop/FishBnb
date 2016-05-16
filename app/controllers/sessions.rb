@@ -14,4 +14,9 @@ class Makersbnb < Sinatra::Base
     end
   end
 
+  delete '/sessions' do
+    session[:user_id] = nil
+    redirect '/'
+  end
+
 end

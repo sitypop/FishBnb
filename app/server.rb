@@ -2,6 +2,7 @@ class Makersbnb < Sinatra::Base
 
   enable :sessions
   set :session_secret, 'super secret'
+  use Rack::MethodOverride
 
   helpers do
     def current_user
