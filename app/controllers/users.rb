@@ -4,14 +4,15 @@ class Makersbnb < Sinatra::Base
     erb :'users/new'
   end
 
-  post '/users/new' do
-    User.create(first_name: params[:first_name],
+  post '/users' do
+    user = User.create(first_name: params[:first_name],
                 last_name: params[:last_name],
                 username: params[:username],
                 email: params[:email],
                 password: params[:password],
-                confirm_password: params[:confirm_password]
+                password_confirmation: params[:password_confirmation]
                 )
+    session[:user_id] = user.id
     redirect '/'
   end
 
