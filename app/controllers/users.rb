@@ -4,7 +4,7 @@ class Makersbnb < Sinatra::Base
     erb :'users/new'
   end
 
-  post '/users/new' do
+  post '/users' do
     user = User.create(first_name: params[:first_name],
                 last_name: params[:last_name],
                 username: params[:username],
