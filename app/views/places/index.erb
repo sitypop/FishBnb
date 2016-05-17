@@ -4,7 +4,11 @@
 <ul id='places'>
   <li>
     <% @places.each do |place| %>
-    Name: <%= place.name %> Description: <%= place.description %> Price: <%= place.price %>
+      Name: <%= place.name %> Description: <%= place.description %> Price: <%= place.price %>
+      <form action="/places/bookings" method="post">
+        <input type="hidden" name="id" value="<%= place.id %>">
+        <button type="submit" name="Book" >Book Place now</button>
+      </form>
     <% end %>
   </li>
 </ul>

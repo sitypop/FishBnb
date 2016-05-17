@@ -19,4 +19,14 @@ class Makersbnb < Sinatra::Base
     redirect '/places'
   end
 
+  post '/places/bookings' do
+    id = params[:id]
+    redirect 'places/bookings/' + id
+  end
+
+  get '/places/bookings/:id' do
+    @place = Place.get(params['id'])
+    erb :'places/bookings'
+  end
+
 end
