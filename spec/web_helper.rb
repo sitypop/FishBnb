@@ -1,12 +1,17 @@
-def sign_up
+def sign_up(first_name: 'Bob',
+            last_name: 'Smith',
+            username: 'bob1',
+            email: 'bob@me.com',
+            password: 'minions',
+            password_confirmation: 'minions')
   visit '/users/new'
   expect(page.status_code).to eq 200
-  fill_in :first_name,  with: 'Bob'
-  fill_in :last_name,   with: 'Smith'
-  fill_in :username,    with: 'bob1'
-  fill_in :email,       with: 'bob@me.com'
-  fill_in :password,    with: 'minions'
-  fill_in :password_confirmation, with: 'minions'
+  fill_in :first_name,  with: first_name
+  fill_in :last_name,   with: last_name
+  fill_in :username,    with: username
+  fill_in :email,       with: email
+  fill_in :password,    with: password
+  fill_in :password_confirmation, with: password_confirmation
   click_button 'Sign up'
 end
 
