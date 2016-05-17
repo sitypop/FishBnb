@@ -12,11 +12,12 @@ feature 'Creating a place' do
 
   scenario 'When logged in I can add a place' do
     login(username: user.username, password: user.password)
-    visit '/places/new'
-    fill_in 'name', with: 'Downton Abbey'
-    fill_in 'description', with: 'Charming Victorian manor house'
-    fill_in 'price', with: '29'
-    click_button 'Add Place'
+    add_place(name: 'Downton Abbey', description: 'Charming Victorian manor house', price: '29')
+    # visit '/places/new'
+    # fill_in 'name', with: 'Downton Abbey'
+    # fill_in 'description', with: 'Charming Victorian manor house'
+    # fill_in 'price', with: '29'
+    # click_button 'Add Place'
 
     expect(current_path).to eq '/places'
 

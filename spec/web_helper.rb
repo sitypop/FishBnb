@@ -17,3 +17,11 @@ def login(username:, password:)
   fill_in :password, with: password
   click_button 'Login'
 end
+
+def add_place(name:, description:, price:)
+  visit '/places/new'
+  fill_in :name, with: name
+  fill_in :description, with: description
+  fill_in :price, with: price
+  click_button 'Add Place'
+end
