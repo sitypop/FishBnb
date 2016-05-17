@@ -1,25 +1,25 @@
 Must Have
 ----------
 
-As a user
+<!-- As a user
 So that I can see a personalised page
-I want to be able to sign up.
+I want to be able to sign up. -->
 
-As a user
+<!-- As a user
 So that my data is secure
 I want to be able to sign in.
 
 As a user
 So that my data is secure
-I want to be able to sign out.
+I want to be able to sign out. -->
 
-As a host
+<!-- As a host
 So that i can attract possible tenant
 I want to be able to list a space.
 
 As a host
 So that guests know how much a space is
-I want to be able to add a price per night to my space.
+I want to be able to add a price per night to my space. -->
 
 As a guest
 So that I can express interest in a space
