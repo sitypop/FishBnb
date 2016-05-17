@@ -1,0 +1,15 @@
+<html>
+<head>
+  <title>SHEWbnb</title>
+</head>
+<body>
+  <% if current_user %>
+            <h4>Signed in as <%= current_user.username %></h4>
+              <form method='post' action='/sessions'>
+                <input type='hidden' name='_method' value='delete'>
+                <input type='submit' value='Logout'>
+              </form>
+    <% end %>
+          </header>
+<%= yield %>
+</html>
