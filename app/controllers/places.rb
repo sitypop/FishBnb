@@ -13,7 +13,7 @@ class Makersbnb < Sinatra::Base
     Place.create(
       name: params[:name],
       description: params[:description],
-      price: params[:price])
+      price: params[:price].to_i)
     redirect '/places'
   end
 
