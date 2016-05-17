@@ -21,13 +21,13 @@ As a host
 So that guests know how much a space is
 I want to be able to add a price per night to my space. -->
 
-As a guest
-So that I can express interest in a space
-I want to be able to request to hire any space for one night.
+<!-- As a guest
+So that I can stay in a space
+I want to be able to book any space for one night. -->
 
-As a host
-So that I can receive a guest
-I want to be able to approve a booking request.
+As a guest
+So that I don't get awkward sleeping arrangements
+I want spaces to be bookable by only one user at a time.
 
 Should Have
 -----------
@@ -43,6 +43,14 @@ I want to be able to set a range of dates when it’s available.
 As a guest
 So that I don’t request to book somewhere that’s already occupied
 I want spaces to be unlisted on dates that they’re already booked.
+
+As a guest
+So that I can express interest in a space
+I want to be able to request to hire any space for one night.
+
+As a host
+So that I can receive a guest
+I want to be able to approve a booking request.
 
 Could Have
 ----------
