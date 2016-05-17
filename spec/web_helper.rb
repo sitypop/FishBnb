@@ -19,7 +19,8 @@ def login(username:, password:)
 end
 
 def add_place(name:, description:, price:)
-  visit '/places/new'
+  visit '/places'
+  click_button 'Add new place'
   fill_in :name, with: name
   fill_in :description, with: description
   fill_in :price, with: price

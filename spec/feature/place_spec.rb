@@ -21,4 +21,5 @@ feature 'Creating a place' do
       expect(page).to have_content('Downton Abbey')
     end
   end
+
 end
