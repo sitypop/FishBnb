@@ -1,5 +1,6 @@
 ENV["RACK_ENV"] ||= 'development'
 require 'sinatra/base'
+require 'sinatra/flash'
 require_relative 'data_mapper_setup'
 require_relative 'models/user'
 require_relative 'controllers/users'
@@ -10,7 +11,7 @@ require_relative 'server'
 
 class Makersbnb < Sinatra::Base
 
-  set :root, File.join(File.dirname(__FILE__), '')
+
 
   get '/' do
     erb :index

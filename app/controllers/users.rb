@@ -1,6 +1,7 @@
 class Makersbnb < Sinatra::Base
 
   get '/users/new' do
+    @user = User.new
     erb :'users/new'
   end
 
@@ -16,6 +17,7 @@ class Makersbnb < Sinatra::Base
         session[:user_id] = @user.id
         redirect '/places'
     else
+      flash.now[:errors] = @user.errors.full_messages
       erb :'users/new'
     end
 
