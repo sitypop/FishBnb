@@ -21,9 +21,8 @@ scenario 'click through to a place\'s page' do
 
   click_button 'Book Place now'
 
-  expect(current_path).to eq('/places/' + Place.first(name: 'Downton Abbey').id.to_s)
-
   expect(page).to have_content('Downton Abbey has been booked')
+
 end
 
 end
