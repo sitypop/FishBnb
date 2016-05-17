@@ -2,15 +2,19 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Shew bnb</title>
+    <title>SHEW bnb</title>
   </head>
   <body>
-    <% if current_user %>
-      Signed in as <%= current_user.username %>
-      <form action="/sessions" method="post">
-        <input type="hidden" name="_method" value="delete">
-        <input type="submit" name="logout" value="Logout">
+    <% unless current_user %>
+      <form action='/users/new'>
+        <input type='submit' value='Sign up'>
       </form>
-    <%end%>
+      <form action='/sessions/new'>
+        <input type='submit' value='Login'>
+      </form>
+      <% end %>
+
+    Welcome.
+
   </body>
 </html>

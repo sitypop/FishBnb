@@ -8,7 +8,7 @@ class Makersbnb < Sinatra::Base
     user = User.authenticate(params[:username], params[:password])
     if user
       session[:user_id] = user.id
-      redirect '/'
+      redirect '/places'
     else
       erb :'sessions/new'
     end

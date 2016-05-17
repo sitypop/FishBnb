@@ -5,8 +5,8 @@ class Makersbnb < Sinatra::Base
   end
 
   get '/places' do
-    @place = Place.first
-    erb :'places/places'
+    @places = Place.all
+    erb :'places/index'
   end
 
   post '/places' do
