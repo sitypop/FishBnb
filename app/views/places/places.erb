@@ -3,5 +3,8 @@
 <ul id='places'>
   <li>
     Name: <%= @place.name %> Description: <%= @place.description %> Price: <%= @place.price %>
+<form action="/places/:id" method="post">
+  <button type="submit" name="id" value="<%= @place.id %>">Book Place now</button>
+</form>
   </li>
 </ul>
