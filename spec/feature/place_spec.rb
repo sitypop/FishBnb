@@ -13,7 +13,6 @@ feature 'Creating a place' do
   scenario 'When logged in I can add a place' do
     login(username: user.username, password: user.password)
     add_place(name: 'Downton Abbey', description: 'Charming Victorian manor house', price: '29')
-
     expect(current_path).to eq '/places'
     expect(Place.first.user_id).to eq user.id
 
