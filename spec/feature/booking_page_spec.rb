@@ -13,11 +13,10 @@ feature 'User views a booking page' do
   scenario 'click through to a place\'s page' do
     login(username: user.username, password: user.password)
 
-    visit '/places/new'
-    fill_in 'name', with: 'Downton Abbey'
-    fill_in 'description', with: 'Charming Victorian manor house'
-    fill_in 'price', with: '29'
-    click_button 'Add Place'
+    add_place(name: 'Downton Abbey',
+              description: 'Charming Victorian manor house',
+              price: '29',
+              availability: '13/06/2016')
 
     click_button 'Book Place now'
 
@@ -28,11 +27,10 @@ feature 'User views a booking page' do
   scenario 'cannot book a place when already booked' do
     login(username: user.username, password: user.password)
 
-    visit '/places/new'
-    fill_in 'name', with: 'Downton Abbey'
-    fill_in 'description', with: 'Charming Victorian manor house'
-    fill_in 'price', with: '29'
-    click_button 'Add Place'
+    add_place(name: 'Downton Abbey',
+              description: 'Charming Victorian manor house',
+              price: '29',
+              availability: '13/06/2016')
 
     click_button 'Book Place now'
     visit '/places'

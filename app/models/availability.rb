@@ -4,5 +4,6 @@ class Availability
   property :id, Serial
   property :start_date, Date, required: true
   # property :end_date, Date, required: true
-  has 1, :place
+  belongs_to :place
+
 end
