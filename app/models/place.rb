@@ -8,6 +8,6 @@ class Place
   property :booked, Boolean, default: false
 
   belongs_to :user
-  has n, :availabilitys
+  has n, :availabilities
 
 end
