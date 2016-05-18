@@ -21,7 +21,7 @@ feature 'Creating a place' do
     add_place(name: 'Downton Abbey',
               description: 'Charming Victorian manor house',
               price: '29',
-              availability: '13/06/2016')
+              availability: '2016-06-13')
     expect(current_path).to eq '/places'
     expect(Place.first.user_id).to eq user.id
 

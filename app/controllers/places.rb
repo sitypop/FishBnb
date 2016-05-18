@@ -11,8 +11,7 @@ class Makersbnb < Sinatra::Base
 
   post '/places' do
     user = User.get(session[:user_id])
-    date_obj = Date::strptime(
-      params[:availability], '%d/%m/%Y')
+    date_obj = Date.parse(params[:availability])
     place = Place.create(
       name: params[:name],
       description: params[:description],
