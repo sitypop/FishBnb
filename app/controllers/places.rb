@@ -16,6 +16,9 @@ class Makersbnb < Sinatra::Base
       description: params[:description],
       price: params[:price].to_i,
       user_id: user.id)
+    availability = Availability.create(
+      start_date: params[:availability],
+      place_id: place.id)
     redirect '/places'
   end
 

@@ -23,11 +23,12 @@ def login(username:, password:)
   click_button 'Login'
 end
 
-def add_place(name:, description:, price:)
+def add_place(name:, description:, price:, availability:)
   visit '/places'
   click_button 'Add new place'
   fill_in :name, with: name
   fill_in :description, with: description
   fill_in :price, with: price
+  fill_in :availability, with: availability
   click_button 'Add Place'
 end
