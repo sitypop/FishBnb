@@ -12,47 +12,39 @@ feature 'User views a booking page' do
 
   scenario 'user can request to book a place' do
     login(username: user.username, password: user.password)
-
-    visit '/places/new'
-    fill_in 'name', with: 'Downton Abbey'
-    fill_in 'description', with: 'Charming Victorian manor house'
-    fill_in 'price', with: '29'
-    click_button 'Add Place'
-
+    add_place
     sign_up_guest
     click_button 'Request to Book'
     expect(page.status_code).to eq 200
-
     expect(page).to have_content('Your request for Downton Abbey has been sent to host: bob1')
-
   end
 
   scenario 'cannot request a place when already booked' do
     login(username: user.username, password: user.password)
-    visit '/places/new'
-    fill_in 'name', with: 'Downton Abbey'
-    fill_in 'description', with: 'Charming Victorian manor house'
-    fill_in 'price', with: '29'
-    click_button 'Add Place'
-
+    add_place
     click_button 'Request to Book'
     visit '/places'
     expect(page).to have_content('This place is unavailable')
-
   end
 
-  scenario 'host can approve a booking request' do
+  scenario 'user can see their sent requests' do
     login(username: user.username, password: user.password)
-    visit '/places/new'
-    fill_in 'name', with: 'Downton Abbey'
-    fill_in 'description', with: 'Charming Victorian manor house'
-    fill_in 'price', with: '29'
-    click_button 'Add Place'
-
-
+    add_place
+    sign_up_guest
     click_button 'Request to Book'
-    expect(page.status_code).to eq 200
+    click_button 'Back'
+    click_button 'View sent requests'
+    expect(page).to have_content('You have requested Downton Abbey')
+  end
 
-
+  scenario 'user can see their received requests' do
+    login(username: user.username, password: user.password)
+    add_place
+    sign_up_guest
+    click_button 'Request to Book'
+    click_button 'Logout'
+    login(username: user.username, password: user.password)
+    click_button 'View received requests'
+    expect(page).to have_content('Hanna1 has requested Downton Abbey')
   end
 end
