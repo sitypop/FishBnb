@@ -1,16 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
 <h1> Book a place </h1>
-
  <% unless @places.empty? %>
 <ul id='places'>
-  <li>
     <% @places.each do |place| %>
+    <li>
       Name: <%= place.name %> Description: <%= place.description %> Price: <%= place.price %>
+      <% if !place.booked %>
       <form action="/places/bookings" method="post">
         <input type="hidden" name="id" value="<%= place.id %>">
         <button type="submit" name="Book" >Book Place now</button>
       </form>
+      <% else %>
+      This place is unavailable
+      <% end %>
+      </li>
     <% end %>
-  </li>
 </ul>
 <% else %>
 No spaces here!
@@ -18,3 +27,7 @@ No spaces here!
 <form action="/places/new">
   <button type="submit" name="Add new place">Add new place</button>
 </form>
+
+
+  </body>
+</html>

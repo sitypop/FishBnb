@@ -11,7 +11,7 @@ class Makersbnb < Sinatra::Base
 
   post '/places' do
     user = User.get(session[:user_id])
-    Place.create(
+    place = Place.create(
       name: params[:name],
       description: params[:description],
       price: params[:price].to_i,
@@ -26,6 +26,7 @@ class Makersbnb < Sinatra::Base
 
   get '/places/bookings/:id' do
     @place = Place.get(params['id'])
+    @place.update(booked: true)
     erb :'places/bookings'
   end
 
