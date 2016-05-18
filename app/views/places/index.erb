@@ -11,9 +11,9 @@
     <li>
       Name: <%= place.name %> Description: <%= place.description %> Price: <%= place.price %>
       <% if !place.booked %>
-      <form action="/places/bookings" method="post">
+      <form action="/requests/new" method="post">
         <input type="hidden" name="id" value="<%= place.id %>">
-        <button type="submit" name="Book" >Book Place now</button>
+        <button type="submit" name="Book" >Request to Book</button>
       </form>
       <% else %>
       This place is unavailable

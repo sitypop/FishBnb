@@ -10,7 +10,7 @@ feature 'User views a booking page' do
                 )
   end
 
-  scenario 'click through to a place\'s page' do
+  scenario 'user can request to book a place' do
     login(username: user.username, password: user.password)
 
     visit '/places/new'
@@ -19,24 +19,40 @@ feature 'User views a booking page' do
     fill_in 'price', with: '29'
     click_button 'Add Place'
 
-    click_button 'Book Place now'
+    sign_up_guest
+    click_button 'Request to Book'
+    expect(page.status_code).to eq 200
 
-    expect(page).to have_content('Downton Abbey has been booked')
+    expect(page).to have_content('Your request for Downton Abbey has been sent to host: bob1')
 
   end
 
-  scenario 'cannot book a place when already booked' do
+  scenario 'cannot request a place when already booked' do
     login(username: user.username, password: user.password)
-
     visit '/places/new'
     fill_in 'name', with: 'Downton Abbey'
     fill_in 'description', with: 'Charming Victorian manor house'
     fill_in 'price', with: '29'
     click_button 'Add Place'
 
-    click_button 'Book Place now'
+    click_button 'Request to Book'
     visit '/places'
     expect(page).to have_content('This place is unavailable')
+
+  end
+
+  scenario 'host can approve a booking request' do
+    login(username: user.username, password: user.password)
+    visit '/places/new'
+    fill_in 'name', with: 'Downton Abbey'
+    fill_in 'description', with: 'Charming Victorian manor house'
+    fill_in 'price', with: '29'
+    click_button 'Add Place'
+
+
+    click_button 'Request to Book'
+    expect(page.status_code).to eq 200
+
 
   end
 end
