@@ -9,7 +9,14 @@
 <ul id='places'>
     <% @places.each do |place| %>
     <li>
-      Name: <%= place.name %> Description: <%= place.description %> Price: <%= place.price %> Available: <%= Availability.first(:place_id => place.id).start_date %>
+      Name: <%= place.name %> Description: <%= place.description %> Price: <%= place.price %>
+      <ul id='availabilities'>
+        <%  Availability.all(:place_id => place.id).each do |availability| %>
+        <li>
+        Available on: <%= availability.start_date %>
+        </li>
+        <% end %>
+      </ul> %>
       <% if !place.booked %>
       <form action="/requests/new" method="post">
         <input type="hidden" name="id" value="<%= place.id %>">
