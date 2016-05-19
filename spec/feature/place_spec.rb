@@ -10,18 +10,9 @@ feature 'Creating a place' do
                 )
   end
 
-  context 'When logged in' do
-
-
-  end
-
-
   scenario 'When logged in I can add a place' do
     login(username: user.username, password: user.password)
-    add_place(name: 'Downton Abbey',
-              description: 'Charming Victorian manor house',
-              price: '29',
-              availability: '2016-06-13')
+    add_place
     expect(current_path).to eq '/places'
     expect(Place.first.user_id).to eq user.id
 
@@ -30,6 +21,5 @@ feature 'Creating a place' do
       expect(page).to have_content('Available: 2016-06-13')
     end
   end
-
 
 end

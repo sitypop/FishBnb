@@ -3,6 +3,7 @@ require 'dm-postgres-adapter'
 
 require_relative 'models/user'
 require_relative 'models/place'
+require_relative 'models/request'
 require_relative 'models/availability'
 
 

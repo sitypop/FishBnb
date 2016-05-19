@@ -6,8 +6,11 @@ class Place
   property :description, Text, required: true
   property :price, Integer, required: true
   property :booked, Boolean, default: false
+  property :username, String
 
   belongs_to :user
+  has n, :requests
   has n, :availabilities
+
 
 end

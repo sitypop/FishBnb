@@ -10,31 +10,41 @@ feature 'User views a booking page' do
                 )
   end
 
-  scenario 'click through to a place\'s page' do
+  scenario 'user can request to book a place' do
     login(username: user.username, password: user.password)
-
-    add_place(name: 'Downton Abbey',
-              description: 'Charming Victorian manor house',
-              price: '29',
-              availability: '13/06/2016')
-
-    click_button 'Book Place now'
-
-    expect(page).to have_content('Downton Abbey has been booked')
-
+    add_place
+    sign_up_guest
+    click_button 'Request to Book'
+    expect(page.status_code).to eq 200
+    expect(page).to have_content('Your request for Downton Abbey has been sent to host: bob1')
   end
 
-  scenario 'cannot book a place when already booked' do
+  scenario 'cannot request a place when already booked' do
     login(username: user.username, password: user.password)
-
-    add_place(name: 'Downton Abbey',
-              description: 'Charming Victorian manor house',
-              price: '29',
-              availability: '13/06/2016')
-
-    click_button 'Book Place now'
+    add_place
+    click_button 'Request to Book'
     visit '/places'
     expect(page).to have_content('This place is unavailable')
+  end
 
+  scenario 'user can see their sent requests' do
+    login(username: user.username, password: user.password)
+    add_place
+    sign_up_guest
+    click_button 'Request to Book'
+    click_button 'Back'
+    click_button 'View sent requests'
+    expect(page).to have_content('You have requested Downton Abbey')
+  end
+
+  scenario 'user can see their received requests' do
+    login(username: user.username, password: user.password)
+    add_place
+    sign_up_guest
+    click_button 'Request to Book'
+    click_button 'Logout'
+    login(username: user.username, password: user.password)
+    click_button 'View received requests'
+    expect(page).to have_content('Hanna1 has requested Downton Abbey')
   end
 end

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <% unless @received.empty? %>
+    <ul id='received'>
+       <% @received.each do |received| %>
+       <li>
+         <%= received.user.username %> has requested <%= received.place.name %>
+      </li>
+       <% end %>
+    </ul>
+    <% end %>
+    <form action='/places'>
+    <input type='submit' value='Back'>
+  </form>
+  </body>
+</html>

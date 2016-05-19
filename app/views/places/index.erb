@@ -11,9 +11,10 @@
     <li>
       Name: <%= place.name %> Description: <%= place.description %> Price: <%= place.price %> Available: <%= Availability.first(:place_id => place.id).start_date %>
       <% if !place.booked %>
-      <form action="/places/bookings" method="post">
+      <form action="/requests/new" method="post">
         <input type="hidden" name="id" value="<%= place.id %>">
-        <button type="submit" name="Book" >Book Place now</button>
+        <input type="hidden" name="username" value="<%= place.username %>">
+        <button type="submit" name="Book" >Request to Book</button>
       </form>
       <% else %>
       This place is unavailable
@@ -27,7 +28,14 @@ No spaces here!
 <form action="/places/new">
   <button type="submit" name="Add new place">Add new place</button>
 </form>
-
+<form method='post' action='/requests/sent'>
+  <input type='hidden' name='id' value='<%= current_user.id %>'>
+  <input type='submit' value='View sent requests'>
+</form>
+<form method='post' action='/requests/received'>
+  <input type='hidden' name='username' value='<%= current_user.username %>'>
+  <input type='submit' value='View received requests'>
+</form>
 
   </body>
 </html>

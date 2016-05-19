@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <% unless @sent.empty? %>
+    <ul id='sent'>
+       <% @sent.each do |sent| %>
+       <li>
+         You have requested <%= sent.place.name %>
+      </li>
+       <% end %>
+    </ul>
+    <% end %>
+    <form action='/places'>
+    <input type='submit' value='Back'>
+  </form>
+  </body>
+</html>
