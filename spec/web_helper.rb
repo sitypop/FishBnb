@@ -23,15 +23,6 @@ def login(username:, password:)
   click_button 'Login'
 end
 
-# def add_place(name:, description:, price:)
-#   visit '/places'
-#   click_button 'Add new place'
-#   fill_in :name, with: name
-#   fill_in :description, with: description
-#   fill_in :price, with: price
-#   click_button 'Add Place'
-# end
-
 def sign_up_guest(first_name: 'Hanna',
             last_name: 'Smith',
             username: 'Hanna1',
@@ -54,5 +45,7 @@ def add_place
   fill_in 'name', with: 'Downton Abbey'
   fill_in 'description', with: 'Charming Victorian manor house'
   fill_in 'price', with: '29'
+  fill_in 'availability', with: '13/06/2016'
+
   click_button 'Add Place'
 end

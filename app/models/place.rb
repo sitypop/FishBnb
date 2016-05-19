@@ -10,5 +10,7 @@ class Place
 
   belongs_to :user
   has n, :requests
+  has n, :availabilities
+
 
 end
