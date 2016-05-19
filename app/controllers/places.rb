@@ -24,4 +24,11 @@ class Makersbnb < Sinatra::Base
     redirect '/places'
   end
 
+  get '/places/manage' do
+    @places = Place.all(user_id: params[:id])
+    erb :'places/manage'
+  end
+
+
+
 end

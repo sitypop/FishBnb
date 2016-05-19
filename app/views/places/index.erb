@@ -36,6 +36,10 @@ No spaces here!
   <input type='hidden' name='username' value='<%= current_user.username %>'>
   <input type='submit' value='View received requests'>
 </form>
+<form method='get' action='/places/manage'>
+  <input type='hidden' name='id' value='<%= current_user.id %>'>
+  <input type='submit' value='Manage my places'>
+</form>
 
   </body>
 </html>
