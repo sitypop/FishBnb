@@ -18,4 +18,16 @@ feature 'Host can manage their places' do
     expect(page).to have_content('Buckingham Palace')
   end
 
+  scenario 'can see multiple availabilities for a place' do
+    sign_up
+    add_place
+    click_button 'Manage my places'
+    click_button 'Add availability'
+    fill_in :start_date, with: '20/06/2016'
+    click_button 'Confirm'
+    visit '/places'
+    click_button 'Manage my places'
+    expect(page).to have_content('Available on: 2016-06-20')
+  end
+
 end
