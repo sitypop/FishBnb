@@ -18,7 +18,7 @@ feature 'Creating a place' do
 
     within 'ul#places' do
       expect(page).to have_content('Downton Abbey')
-      expect(page).to have_content('Available: 2016-06-13')
+      expect(page).to have_content('Available on: 2016-06-13')
     end
   end
 
