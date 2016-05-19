@@ -10,12 +10,10 @@
     <% @places.each do |place| %>
     <li>
       Name: <%= place.name %> Description: <%= place.description %> Price: <%= place.price %> Available: <%= Availability.first(:place_id => place.id).start_date %>
-      <!-- <form action="/requests/new" method="post">
+      <form action="/places/manage/availability" method="get">
         <input type="hidden" name="id" value="<%= place.id %>">
-        <input type="hidden" name="username" value="<%= place.username %>">
-        <button type="submit" name="Book" >Request to Book</button>
-      </form> -->
-
+        <button type="submit" name="Add availability" >Add availability</button>
+      </form>
       </li>
     <% end %>
 </ul>
