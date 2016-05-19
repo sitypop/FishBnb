@@ -33,4 +33,18 @@ class Makersbnb < Sinatra::Base
     erb :'requests/received'
   end
 
+  post '/requests/accepted' do
+    username = current_user.username
+    request = Request.get(params[:request])
+    request.update(approved: true)
+    redirect '/requests/received' + username
+  end
+
+  post '/requests/declined' do
+    username = current_user.username
+    request = Request.get(params[:request])
+    request.update(declined: true)
+    redirect 'requests/received' + username
+  end
+
 end

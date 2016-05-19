@@ -48,21 +48,21 @@ As a guest
 So that I can express interest in a space
 I want to be able to request to hire any space for one night.
 
-As a host
+<!-- As a host
 So that I can receive a guest
-I want to be able to approve a booking request.
+I want to be able to approve a booking request. -->
 
-As a host
+<!-- As a host
 So that I can keep track of my places
-I want to be able to see a list of all my places.
+I want to be able to see a list of all my places. -->
 
-As a host
+<!-- As a host
 So that I can keep track of requests I've received
-I want to be able to see a list of the bookings I've received (both pending and confirmed).
+I want to be able to see a list of the bookings I've received (both pending and confirmed). -->
 
-As a guest
+<!-- As a guest
 So that I can keep track of requests I've sent
-I want to be able to see a list of the bookings I've made (both pending and confirmed).
+I want to be able to see a list of the bookings I've made (both pending and confirmed). -->
 
 Could Have
 ----------

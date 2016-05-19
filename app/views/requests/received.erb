@@ -8,9 +8,23 @@
     <ul id='received'>
        <% @received.each do |received| %>
        <li>
-         <%= received.user.username %> has requested <%= received.place.name %>
+         <% if received.approved %>
+          <%= received.place.name %>: You have approved this request
+          <% elsif received.declined %>
+          <%= received.place.name %>: You have declined this request
+          <% else %>
+           <%= received.user.username %> has requested <%= received.place.name %>
+             <form action="/requests/accepted" method="post">
+               <input type="hidden" name="request" value="<%=received.id%>">
+               <input type="submit" name="accept" value='Accept?'>
+            </form>
+            <form action="/requests/declined" method="post">
+              <input type="hidden" name="request" value="<%=received.id%>">
+              <input type="submit" name="accept" value='Decline?'>
+           </form>
+            <% end %>
       </li>
-       <% end %>
+        <% end %>
     </ul>
     <% end %>
     <form action='/places'>
