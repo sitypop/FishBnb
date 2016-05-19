@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+<h1>My places</h1>
+ <% unless @places.empty? %>
+<ul id='places'>
+    <% @places.each do |place| %>
+    <li>
+      Name: <%= place.name %> Description: <%= place.description %> Price: <%= place.price %> Available: <%= Availability.first(:place_id => place.id).start_date %>
+      <form action="/places/manage/availability" method="get">
+        <input type="hidden" name="id" value="<%= place.id %>">
+        <button type="submit" name="Add availability" >Add availability</button>
+      </form>
+      </li>
+    <% end %>
+</ul>
+<% else %>
+No places here!
+<% end %>
+    <form action='/places'>
+    <input type='submit' value='Back'>
+    </form>
+  </body>
+</html>

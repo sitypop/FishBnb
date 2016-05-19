@@ -44,9 +44,9 @@ As a guest
 So that I don’t request to book somewhere that’s already occupied
 I want spaces to be unlisted when they’re already booked.
 
-As a guest
+<!-- As a guest
 So that I can express interest in a space
-I want to be able to request to hire any space for one night.
+I want to be able to request to hire any space for one night. -->
 
 <!-- As a host
 So that I can receive a guest

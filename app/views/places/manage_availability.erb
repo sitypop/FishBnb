@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <h1><%= @place.name %></h1>
+
+    Name: <%= @place.name %> Description: <%= @place.description %> Price: <%= @place.price %>
+    <ul id='availabilities'>
+      <% @availabilities.each do |availability| %>
+      <li>
+      Available on: <%= availability.start_date %>
+      </li>
+      <% end %>
+    </ul>
+    <form action="/places/manage/availability" method="post">
+      <input type="hidden" name="id" value="<%= @place.id %>">
+      <label for="availability">
+        Start date:
+        <input type="date" name="start_date" required/>
+      </label>
+      <button type="submit" name="Confirm" >Confirm</button>
+    </form>
+
+
+  <form action='/places'>
+  <input type='submit' value='Back'>
+  </form>
+</body>
+</html>
