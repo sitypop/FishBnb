@@ -10,15 +10,20 @@
     <ul id='availabilities'>
       <% @availabilities.each do |availability| %>
       <li>
-      Available on: <%= availability.start_date %>
+        Start date: <%= availability.start_date %>
+        End date: <%= availability.end_date %>
       </li>
       <% end %>
     </ul>
     <form action="/places/manage/availability" method="post">
       <input type="hidden" name="id" value="<%= @place.id %>">
-      <label for="availability">
+      <label for="start_date">
         Start date:
         <input type="date" name="start_date" required/>
+      </label>
+      <label for="end_date">
+        End date:
+        <input type="date" name="end_date" required/>
       </label>
       <button type="submit" name="Confirm" >Confirm</button>
     </form>

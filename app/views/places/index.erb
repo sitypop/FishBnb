@@ -13,7 +13,8 @@
       <ul id='availabilities'>
         <%  Availability.all(:place_id => place.id).each do |availability| %>
         <li>
-        Available on: <%= availability.start_date %>
+        Start date: <%= availability.start_date %>
+        End date: <%= availability.end_date %>
         </li>
         <% end %>
       </ul>
