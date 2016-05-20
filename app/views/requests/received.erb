@@ -15,6 +15,7 @@
           <% else %>
            <%= received.user.username %> has requested <%= received.place.name %>
              <form action="/requests/accepted" method="post">
+               <input type="hidden" name="place" value="<%=received.place_id%>">
                <input type="hidden" name="request" value="<%=received.id%>">
                <input type="submit" name="accept" value='Accept?'>
             </form>

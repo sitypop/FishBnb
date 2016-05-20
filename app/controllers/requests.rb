@@ -9,7 +9,6 @@ class Makersbnb < Sinatra::Base
 
   get '/requests/new:id' do
     @place = Place.get(params['id'])
-    @place.update(booked: true)
     erb :'requests/new'
   end
 
@@ -36,7 +35,9 @@ class Makersbnb < Sinatra::Base
   post '/requests/accepted' do
     username = current_user.username
     request = Request.get(params[:request])
+    place = Place.get(params[:place])
     request.update(approved: true)
+    place.update(booked: true)
     redirect '/requests/received' + username
   end
 

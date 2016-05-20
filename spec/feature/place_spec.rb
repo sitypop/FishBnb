@@ -22,4 +22,17 @@ feature 'Creating a place' do
     end
   end
 
+  scenario 'Place becomes unavailable when request is confirmed' do
+    login(username: user.username, password: user.password)
+    add_place
+    sign_up_guest
+    click_button 'Request to Book'
+    click_button 'Logout'
+    login(username: user.username, password: user.password)
+    click_button 'View received requests'
+    click_button 'Accept?'
+    click_button 'Back'
+    expect(page).to have_content('This place is unavailable')
+  end
+
 end
