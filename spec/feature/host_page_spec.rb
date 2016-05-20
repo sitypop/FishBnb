@@ -10,7 +10,8 @@ feature 'Host can manage their places' do
     fill_in 'name', with: 'Buckingham Palace'
     fill_in 'description', with: 'Big house with massive garden'
     fill_in 'price', with: '35'
-    fill_in 'availability', with: '15/06/2016'
+    fill_in 'start_date', with: '15/06/2016'
+    fill_in 'end_date', with: '15/06/2016'
     click_button 'Add Place'
     click_button 'Manage my places'
     expect(page.status_code).to eq 200
@@ -24,10 +25,11 @@ feature 'Host can manage their places' do
     click_button 'Manage my places'
     click_button 'Add availability'
     fill_in :start_date, with: '20/06/2016'
+    fill_in :end_date, with: '20/06/2016'
     click_button 'Confirm'
     visit '/places'
     click_button 'Manage my places'
-    expect(page).to have_content('Available on: 2016-06-20')
+    expect(page).to have_content('Start date: 2016-06-20')
   end
 
 end

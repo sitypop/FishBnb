@@ -45,6 +45,7 @@ def add_place
   fill_in 'name', with: 'Downton Abbey'
   fill_in 'description', with: 'Charming Victorian manor house'
   fill_in 'price', with: '29'
-  fill_in 'availability', with: '13/06/2016'
+  fill_in 'start_date', with: '13/06/2016'
+  fill_in 'end_date', with: '13/06/2016'
   click_button 'Add Place'
 end
