@@ -9,6 +9,14 @@
        <% @sent.each do |sent| %>
        <li>
          You have requested <%= sent.place.name %>
+         <% if sent.approved %>
+          Status: approved
+          <% elsif sent.declined %>
+          Status: declined
+          <% else %>
+          Status: pending
+          <% end %>
+
       </li>
        <% end %>
     </ul>
