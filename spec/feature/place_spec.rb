@@ -29,7 +29,7 @@ feature 'Creating a place' do
     click_button 'Request to Book'
     click_button 'Logout'
     login(username: user.username, password: user.password)
-    click_button 'View received requests'
+    click_link 'View received requests'
     click_button 'Accept?'
     click_button 'Back'
     expect(page).to have_content('This place is unavailable')

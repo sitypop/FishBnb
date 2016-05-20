@@ -1,24 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SHEWbnb</title>
+    <title>FISH BNB</title>
   </head>
 
   <body>
-    <form action='/'>
-      <input type='submit' value='Back'>
-    </form>
-    
-    <h1>Please login</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-4 col-xs-offset-4 text-center">
+          <h1 id="sign_up">Please login</h1>
+          <form class="form-horizontal" action="/sessions" method="post">
+            <div class="form-group text-center">
+              <label for="username" class="control-label">Username: </label>
+                <input type="text" class="form-control"name="username" required>
+            <label for="password" class="control-label">Password: </label>
+              <input type="password" class="form-control"name="password" required>
+          </div>
+        <input type="submit" name="login" value="Login">
+      </form>
+    </div>
+    </div>
+    </div>
+    </div>
+    </body>
+    </html>
 
-    <form action="/sessions" method="post">
-      <label for="username">Username: </label>
-      <input type="text" name="username" required>
-      <label for="password">Password: </label>
-      <input type="password" name="password" required>
-      <input type="submit" name="Login" value ="Login">
-    </form>
 
-    </form>
   </body>
 </html>

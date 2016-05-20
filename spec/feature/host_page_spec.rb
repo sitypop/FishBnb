@@ -12,7 +12,7 @@ feature 'Host can manage their places' do
     fill_in 'price', with: '35'
     fill_in 'availability', with: '15/06/2016'
     click_button 'Add Place'
-    click_button 'Manage my places'
+    click_link 'Manage my places'
     expect(page.status_code).to eq 200
     expect(page).not_to have_content('Downton Abbey')
     expect(page).to have_content('Buckingham Palace')
@@ -21,7 +21,7 @@ feature 'Host can manage their places' do
   scenario 'can see multiple availabilities for a place' do
     sign_up
     add_place
-    click_button 'Manage my places'
+    click_link 'Manage my places'
     click_button 'Add availability'
     fill_in :start_date, with: '20/06/2016'
     click_button 'Confirm'

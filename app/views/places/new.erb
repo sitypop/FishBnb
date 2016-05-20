@@ -1,6 +1,25 @@
 <h1> Add your place's details </h1>
 
-<form action='/places' method='post'>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-4 col-xs-offset-4 text-center">
+  <form action="/places" method="post" class="form-horizontal">
+    <div class="form-group text-center">
+      <label for="name" class="control-label">Name: </label>
+        <input type="text" class="form-control"name="name" required>
+      <label for="description" class="control-label">Description: </label>
+        <input type="text" class="form-control"name="description" required>
+        <label for="price" class="control-label">Price: </label>
+          <input type="text" class="form-control"name="price" required>
+    <label for="start_date" class="control-label">Start date: </label>
+      <input type="date" class="form-control"name="start_date" required>
+      <label for="end_date" class="control-label">End date: </label>
+        <input type="date" class="form-control"name="end_date" required>
+  <input type="submit" name="add_place" value="Add Place">
+  </div>
+</form>
+
+<!-- <form action='/places' method='post'>
   <label for='name'>
     Name:
     <input type='text' name='name' required />
@@ -19,4 +38,4 @@
   </label>
   <input type='submit' value='Add Place'>
 
-</form>
+</form> -->

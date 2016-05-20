@@ -1,28 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Shew Bnb</title>
+    <title>FISH BNB</title>
   </head>
   <body>
-    <form action='/'>
-      <input type='submit' value='Back'>
-    </form>
-
-    <form class="form-horiz" action="/users" method="post">
-      <label for="first_name">First Name: </label>
-      <input type="text" name="first_name" required>
-      <label for="last_name">Last Name: </label>
-      <input type="text" name="last_name" required>
-      <label for="username">Username: </label>
-      <input type="text" name="username" required>
-      <label for="email">Email: </label>
-      <input type="email" name="email" value='<%= @user.email%>' required>
-      <label for="password">Password: </label>
-      <input type="password" name="password" required>
-      <label for="password_confirmation">Password confirmation: </label>
-      <input type="password" name="password_confirmation" required>
-      <input type="submit" name="sign_up" value="Sign up">
-    </form>
-
-  </body>
+    <header>
+    </header>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-4 col-xs-offset-4 text-center">
+          <h1 id="sign_up">Please sign up</h1>
+      <form class="form-horizontal" action="/users" method="post">
+        <div class="form-group text-center">
+          <label for="first_name" class="control-label">First Name: </label>
+            <input type="text" class="form-control"name="first_name" required>
+          <label for="last_name" class="control-label">Last Name: </label>
+            <input type="text" class="form-control"name="last_name" required>
+            <label for="username" class="control-label">Username: </label>
+              <input type="text" class="form-control"name="username" required>
+        <label for="email" class="control-label">Email: </label>
+          <input type="text" class="form-control"name="email" required>
+        <label for="password" class="control-label">Password: </label>
+          <input type="password" class="form-control"name="password" required>
+        <label for="password_confirmation" class="control-label">Password confirmation: </label>
+          <input type="password" class="form-control"name="password_confirmation" required>
+      </div>
+    <input type="submit" name="sign_up" value="Sign up">
+  </form>
+</div>
+</div>
+</div>
+</div>
+</body>
 </html>

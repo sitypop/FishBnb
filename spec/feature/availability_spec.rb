@@ -3,7 +3,7 @@ feature 'Host can change availability on their places' do
   scenario 'Host can add an availability from their places page' do
     sign_up
     add_place
-    click_button 'Manage my places'
+    click_link 'Manage my places'
     click_button 'Add availability'
     expect(page.status_code).to eq 200
     fill_in :start_date, with: '20/06/2016'

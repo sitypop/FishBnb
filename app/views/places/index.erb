@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+  <title>FISH BNB</title>
 </head>
 <body>
-<h1> Book a place </h1>
+<span>
+  <h1> Book a place </h1>
+  <form action="/places/new">
+   <button type="submit" name="Add new place">Add new place</button>
+  </form>
+</span>
  <% unless @places.empty? %>
 <ul id='places'>
     <% @places.each do |place| %>
@@ -32,7 +37,8 @@
 <% else %>
 No spaces here!
 <% end %>
-<form action="/places/new">
+
+<!-- <form action="/places/new">
   <button type="submit" name="Add new place">Add new place</button>
 </form>
 <form method='post' action='/requests/sent'>
@@ -46,7 +52,8 @@ No spaces here!
 <form method='get' action='/places/manage'>
   <input type='hidden' name='id' value='<%= current_user.id %>'>
   <input type='submit' value='Manage my places'>
-</form>
+</form> -->
+
 
   </body>
 </html>

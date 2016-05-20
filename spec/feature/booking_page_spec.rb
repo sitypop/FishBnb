@@ -44,7 +44,7 @@ feature 'User views a booking page' do
     click_button 'Request to Book'
     click_button 'Logout'
     login(username: user.username, password: user.password)
-    click_button 'View received requests'
+    click_link 'View received requests'
     expect(page).to have_content('Hanna1 has requested Downton Abbey')
   end
 
@@ -55,7 +55,7 @@ feature 'User views a booking page' do
     click_button 'Request to Book'
     click_button 'Logout'
     login(username: user.username, password: user.password)
-    click_button 'View received requests'
+    click_link 'View received requests'
     click_button 'Accept?'
     expect(page.status_code).to eq 200
     expect(page).to have_content('You have approved this request')
@@ -68,7 +68,7 @@ feature 'User views a booking page' do
     click_button 'Request to Book'
     click_button 'Logout'
     login(username: user.username, password: user.password)
-    click_button 'View received requests'
+    click_link 'View received requests'
     click_button 'Decline?'
     expect(page.status_code).to eq 200
     expect(page).to have_content('You have declined this request')
