@@ -19,12 +19,12 @@ feature 'User views a booking page' do
     expect(page).to have_content('Your request for Downton Abbey has been sent to host: bob1')
   end
 
-  scenario 'cannot request a place when already booked' do
+  scenario 'can request a place until it has been approved' do
     login(username: user.username, password: user.password)
     add_place
     click_button 'Request to Book'
     visit '/places'
-    expect(page).to have_content('This place is unavailable')
+    expect(page).not_to have_content('This place is unavailable')
   end
 
   scenario 'user can see their sent requests' do
