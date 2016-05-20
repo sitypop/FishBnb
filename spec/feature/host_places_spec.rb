@@ -1,4 +1,4 @@
-feature 'Host can manage their places' do
+feature 'Host can view their places' do
 
   scenario 'only hosts places are visible on the page' do
     sign_up

@@ -1,4 +1,4 @@
-feature 'User views a booking page' do
+feature 'User can make and process requests' do
 
   scenario 'user can request to book a place' do
     sign_up
@@ -7,17 +7,10 @@ feature 'User views a booking page' do
     click_button 'Request to Book'
     expect(page.status_code).to eq 200
     expect(page).to have_content('Your request for Downton Abbey has been sent to host: bob1')
+    expect(Request.all).not_to be_empty
   end
 
-  scenario 'can request a place until it has been approved' do
-    sign_up
-    add_place
-    click_button 'Request to Book'
-    visit '/places'
-    expect(page).not_to have_content('This place is unavailable')
-  end
-
-  scenario 'user can see their sent requests' do
+  scenario 'guest can see their sent requests' do
     sign_up
     add_place
     sign_up_guest
@@ -27,7 +20,7 @@ feature 'User views a booking page' do
     expect(page).to have_content('You have requested Downton Abbey')
   end
 
-  scenario 'user can see their received requests' do
+  scenario 'host can see their received requests' do
     sign_up
     add_place
     sign_up_guest
@@ -49,6 +42,7 @@ feature 'User views a booking page' do
     click_button 'Accept?'
     expect(page.status_code).to eq 200
     expect(page).to have_content('You have approved this request')
+    expect(Request.first.approved).to be true
   end
 
   scenario 'host can decline a request' do
@@ -62,5 +56,6 @@ feature 'User views a booking page' do
     click_button 'Decline?'
     expect(page.status_code).to eq 200
     expect(page).to have_content('You have declined this request')
+    expect(Request.first.declined).to be true
   end
 end
