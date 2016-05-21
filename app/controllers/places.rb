@@ -13,16 +13,8 @@ class Makersbnb < Sinatra::Base
     user = User.get(session[:user_id])
     start_date_obj = convert_date_object(params[:start_date])
     end_date_obj = convert_date_object(params[:end_date])
-    place = Place.create(
-      name: params[:name],
-      description: params[:description],
-      price: params[:price].to_i,
-      user_id: user.id,
-      username: user.username)
-    availability = Availability.create(
-      start_date: start_date_obj,
-      end_date: end_date_obj,
-      place_id: place.id)
+    place = create_place(user)
+    availability = create_availability(place.id, start_date_obj, end_date_obj)
     redirect '/places'
   end
 
@@ -38,9 +30,10 @@ class Makersbnb < Sinatra::Base
   end
 
   post '/places/manage/availability' do
-    start_date_obj = = convert_date_object(params[:start_date])
+    start_date_obj = convert_date_object(params[:start_date])
     end_date_obj = convert_date_object(params[:end_date])
     availability = create_availability(params[:id], start_date_obj, end_date_obj)
     redirect '/places/manage/availability'
   end
+
 end

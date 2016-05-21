@@ -7,18 +7,19 @@
 <span>
   <h1> Book a place </h1>
   <form action="/places/new">
-   <button type="submit" name="Add new place">Add new place</button>
-  </form>
+  <button type="submit" name="Add new place">Add new place</button>
+</form>
 </span>
- <% unless @places.empty? %>
+<% unless @places.empty? %>
 <ul id='places'>
     <% @places.each do |place| %>
     <li>
       Name: <%= place.name %> Description: <%= place.description %> Price: <%= place.price %>
       <ul id='availabilities'>
-        <%  Availability.all(:place_id => place.id).each do |availability| %>
+        <% Availability.all(:place_id => place.id).each do |availability| %>
         <li>
-        Available on: <%= availability.start_date %>
+        Start date: <%= availability.start_date %>
+        End date: <%= availability.end_date %>
         </li>
         <% end %>
       </ul>
@@ -34,25 +35,11 @@
       </li>
     <% end %>
 </ul>
-<% else %>
-No spaces here!
-<% end %>
+  <% else %>
+  No spaces here!
+  <% end %>
 
-<!-- <form action="/places/new">
-  <button type="submit" name="Add new place">Add new place</button>
-</form>
-<form method='post' action='/requests/sent'>
-  <input type='hidden' name='id' value='<%= current_user.id %>'>
-  <input type='submit' value='View sent requests'>
-</form>
-<form method='post' action='/requests/received'>
-  <input type='hidden' name='username' value='<%= current_user.username %>'>
-  <input type='submit' value='View received requests'>
-</form>
-<form method='get' action='/places/manage'>
-  <input type='hidden' name='id' value='<%= current_user.id %>'>
-  <input type='submit' value='Manage my places'>
-</form> -->
+
 
 
   </body>
