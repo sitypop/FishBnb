@@ -12,10 +12,6 @@ input {
   border-color: #ccf2ff;
 }
 
-#places {
-  font-family: Raleway;
-}
-
 button {
   font-family: Raleway;
   color: #000;
@@ -23,7 +19,6 @@ button {
   border-radius: 4px;
   background-color: #ccf2ff;
   border-color: #ccf2ff;
-  z-index: 1000;
 }
 
 h1 {
@@ -34,12 +29,28 @@ h1 {
   align: center;
 }
 
-.homepage {
+video#bgvid {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background: url(Still.jpg);
+    background-size: cover;
+  }
+
+/*.homepage {
   background-image: url('https://media.giphy.com/media/JXHhI4o9NCf8k/giphy.gif');
   background-size: 100%;
   background: cover;
-}
-
+}*/
 
 .breadcrumb {
   text-align: right;
@@ -47,6 +58,7 @@ h1 {
   background-color: rgba(245, 245, 245, 0.3);
   text-shadow: #000 0.8px 0.8px;
   font-size: 25px;
+  z-index: -1;
 }
 
 .breadcrumb li a:hover {
@@ -62,6 +74,8 @@ color: white;
 .bottom_nav_buttons {
   font-family: Raleway;
   color: #000;
+  float: none;
+  z-index: 1;
 }
 
 #title {
@@ -111,4 +125,8 @@ color: white;
 
 #signed_in_as {
   color: #000;
+}
+
+#places {
+  font-family: Raleway;
 }
