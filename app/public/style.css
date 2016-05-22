@@ -1,0 +1,114 @@
+label {
+  font-family: Raleway;
+  font-size: 20px;
+}
+
+input {
+  font-family: Raleway;
+  color: #000;
+  font-size: 20px;
+  border-radius: 4px;
+  background-color: #ccf2ff;
+  border-color: #ccf2ff;
+}
+
+#places {
+  font-family: Raleway;
+}
+
+button {
+  font-family: Raleway;
+  color: #000;
+  font-size: 20px;
+  border-radius: 4px;
+  background-color: #ccf2ff;
+  border-color: #ccf2ff;
+  z-index: 1000;
+}
+
+h1 {
+  font-family: Raleway;
+  font-size: 55px;
+  text-shadow: #0086b3 1px 1px;
+  color: #66d9ff;
+  align: center;
+}
+
+.homepage {
+  background-image: url('https://media.giphy.com/media/JXHhI4o9NCf8k/giphy.gif');
+  background-size: 100%;
+  background: cover;
+}
+
+
+.breadcrumb {
+  text-align: right;
+  color: #000;
+  background-color: rgba(245, 245, 245, 0.3);
+  text-shadow: #000 0.8px 0.8px;
+  font-size: 25px;
+}
+
+.breadcrumb li a:hover {
+text-decoration: none;
+color: white;
+}
+
+.nav_buttons {
+  font-family: Raleway;
+  color: #e6e6e6;
+}
+
+.bottom_nav_buttons {
+  font-family: Raleway;
+  color: #000;
+}
+
+#title {
+  text-align: center;
+  position: absolute;
+  left: 35%;
+  top:230px;
+}
+
+#line {
+  height: 1px;
+  background: white;
+}
+
+#heading {
+  color: white;
+  font-family: Oswald;
+  letter-spacing: 10px;
+  font-size: 100px;
+  text-shadow: #000000 4px 4px;
+}
+
+
+#tagline {
+  font-family: Pacifico;
+  text-shadow: #000000 1.5px 1.5px;
+  color: white;
+  font-size: 35px;
+}
+
+#sign_in {
+  text-align: right;
+  font-family: Raleway;
+  font-size: 30px;
+}
+
+#back {
+  height: 40px;
+  width: 80px;
+}
+
+
+#sent_request {
+  font-family: Raleway;
+
+}
+
+#signed_in_as {
+  color: #000;
+}
