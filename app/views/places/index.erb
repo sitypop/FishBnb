@@ -4,41 +4,48 @@
   <title>FISH BNB</title>
 </head>
 <body>
-<span>
-  <h1> Book a place </h1>
-  <form action="/places/new">
-  <button type="submit" name="Add new place">Add new place</button>
-</form>
-</span>
-<% unless @places.empty? %>
-<ul id='places'>
-    <% @places.each do |place| %>
-    <li>
-      Name: <%= place.name %> Description: <%= place.description %> Price: <%= place.price %>
-      <ul id='availabilities'>
-        <% Availability.all(:place_id => place.id).each do |availability| %>
-        <li>
-        Start date: <%= availability.start_date %>
-        End date: <%= availability.end_date %>
-        </li>
-        <% end %>
-      </ul>
-      <% if !place.booked %>
-      <form action="/requests/new" method="post">
-        <input type="hidden" name="id" value="<%= place.id %>">
-        <input type="hidden" name="username" value="<%= place.username %>">
-        <button type="submit" name="Book" >Request to Book</button>
-      </form>
-      <% else %>
-      This place is unavailable
-      <% end %>
-      </li>
-    <% end %>
-</ul>
-  <% else %>
-  No spaces here!
-  <% end %>
 
+  <div class="container" class='text-center'>
+    <div class="row">
+      <div class="col-xs-6 col-xs-offset-3">
+
+        <h1> Book a place </h1>
+        <form action="/places/new">
+        <button type="submit" name="Add new place">Add new place</button>
+      </form>
+      </span>
+      <% unless @places.empty? %>
+      <ul id='places'>
+          <% @places.each do |place| %>
+          <li>
+            Name: <%= place.name %> Description: <%= place.description %> Price: <%= place.price %>
+            <ul id='availabilities'>
+              <% Availability.all(:place_id => place.id).each do |availability| %>
+              <li>
+              Start date: <%= availability.start_date %>
+              End date: <%= availability.end_date %>
+              </li>
+              <% end %>
+            </ul>
+            <% if !place.booked %>
+            <form action="/requests/new" method="post">
+              <input type="hidden" name="id" value="<%= place.id %>">
+              <input type="hidden" name="username" value="<%= place.username %>">
+              <button type="submit" name="Book" >Request to Book</button>
+            </form>
+            <% else %>
+            This place is unavailable
+            <% end %>
+            </li>
+
+          <% end %>
+      </ul>
+        <% else %>
+        No spaces here!
+        <% end %>
+      </div>
+    </div>
+  </div>
 
 
 

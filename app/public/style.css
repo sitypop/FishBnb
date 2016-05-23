@@ -42,8 +42,13 @@ video#bgvid {
     -moz-transform: translateX(-50%) translateY(-50%);
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
-    background: url(Still.jpg);
     background-size: cover;
+  }
+
+  li {
+    list-style: none;
+    font-family: Raleway;
+    background-color: #66d9ff;
   }
 
 /*.homepage {
@@ -58,7 +63,10 @@ video#bgvid {
   background-color: rgba(245, 245, 245, 0.3);
   text-shadow: #000 0.8px 0.8px;
   font-size: 25px;
-  z-index: -1;
+  right: 0px;
+  /*width: 70.5%;*/
+  border-radius: 0px 8px 8px 0px;
+  float: right;
 }
 
 .breadcrumb li a:hover {
@@ -75,7 +83,6 @@ color: white;
   font-family: Raleway;
   color: #000;
   float: none;
-  z-index: 1;
 }
 
 #title {
@@ -115,6 +122,8 @@ color: white;
 #back {
   height: 40px;
   width: 80px;
+  /*background-color: rgba(245, 245, 245, 0.3);
+  border-radius: 0px 8px 8px 0px;*/
 }
 
 
@@ -125,8 +134,17 @@ color: white;
 
 #signed_in_as {
   color: #000;
+  /*position: fixed;
+  right: 0;
+  top: 0;*/
 }
 
 #places {
+  list-style: none;
   font-family: Raleway;
+}
+
+#availabilities {
+  background-color: #ccf2ff;
+  width: 400px;
 }

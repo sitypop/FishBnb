@@ -19,13 +19,13 @@ class Makersbnb < Sinatra::Base
   end
 
   get '/places/manage' do
-    @places = Place.all(user_id: params[:id])
+    @places = Place.all(user_id: current_user.id)
     erb :'places/manage'
   end
 
   get '/places/manage/availability' do
     @place = Place.first(params[:id])
-    @availabilities = Availability.all(:place_id => @place.id)
+    @availabilities = Availability.all(place_id: @place.id)
     erb :'places/manage_availability'
   end
 
