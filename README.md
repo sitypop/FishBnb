@@ -24,7 +24,7 @@ This is a little clone of the infamous Air Bnb, renamed Fish BNB in honour of ou
 ## How to Use
 
 ```
-$ git clone https://github.com/sitypop/fishbnb.git
+$ git clone https://github.com/sitypop/FishBnb.git
 $ cd makers_bnb
 $ bundle
 $ rackup
@@ -34,8 +34,8 @@ $ rackup
 
 This project is test-driven with RSpec-Capybara. To run all the tests, simply run `rspec` in your terminal.
 
-## Authors:
--------
+## Authors
+
 * Sity Shah
 * Emmett Walsh
 * Wayne Rumble
