@@ -2,7 +2,11 @@
 
 ## About
 
-This is a little clone of the infamous Air Bnb.
+This is a little clone of the infamous Air Bnb, renamed Fish BNB in honour of our fishy friends. :fish:
+
+![Imgur]()
+
+
 
 ## Features
 
@@ -28,7 +32,7 @@ $ rackup
 
 ## Testing
 
-
+This project is test-driven with RSpec-Capybara. To run all the tests, simply run `rspec` in your terminal.
 
 ## Authors:
 -------
