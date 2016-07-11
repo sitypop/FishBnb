@@ -13,7 +13,7 @@ feature 'Host can view their places' do
     fill_in 'start_date', with: '15/06/2016'
     fill_in 'end_date', with: '15/06/2016'
     click_button 'Add Place'
-    click_button 'Manage my places'
+    click_link 'Manage my places'
     expect(page.status_code).to eq 200
     expect(page).not_to have_content('Downton Abbey')
     expect(page).to have_content('Buckingham Palace')
@@ -24,7 +24,7 @@ feature 'Host can view their places' do
     add_place
     add_availability
     visit '/places'
-    click_button 'Manage my places'
+    click_link 'Manage my places'
     expect(page).to have_content('Start date: 2016-06-20')
   end
 

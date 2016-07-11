@@ -12,23 +12,23 @@ class Makersbnb < Sinatra::Base
     erb :'requests/new'
   end
 
-  post '/requests/sent' do
-    id = params[:id]
-    redirect 'requests/sent' + id
-  end
+  # post '/requests/sent' do
+  #   id = params[:id]
+  #   redirect 'requests/sent' + id
+  # end
 
-  get '/requests/sent:id' do
-    @sent = Request.all(user_id: params['id'])
+  get '/requests/sent' do
+    @sent = Request.all(user_id: current_user.id)
     erb :'requests/sent'
   end
 
-  post '/requests/received' do
-    username = params[:username]
-    redirect 'requests/received' + username
-  end
+  # post '/requests/received' do
+  #   username = params[:username]
+  #   redirect 'requests/received' + username
+  # end
 
-  get '/requests/received:username' do
-    @received = Request.all(host: params['username'])
+  get '/requests/received' do
+    @received = Request.all(host: current_user.username)
     erb :'requests/received'
   end
 
@@ -38,14 +38,14 @@ class Makersbnb < Sinatra::Base
     place = Place.get(params[:place])
     request.update(approved: true)
     place.update(booked: true)
-    redirect '/requests/received' + username
+    redirect '/requests/received'
   end
 
   post '/requests/declined' do
     username = current_user.username
     request = Request.get(params[:request])
     request.update(declined: true)
-    redirect 'requests/received' + username
+    redirect 'requests/received'
   end
 
 end

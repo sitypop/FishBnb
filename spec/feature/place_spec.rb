@@ -19,9 +19,9 @@ feature 'Creating a place' do
     click_button 'Request to Book'
     click_button 'Logout'
     login
-    click_button 'View received requests'
+    click_link 'View received requests'
     click_button 'Accept?'
-    click_button 'Back'
+    click_link 'Places'
     expect(page).to have_content('This place is unavailable')
     expect(Place.first.booked).to be true
   end

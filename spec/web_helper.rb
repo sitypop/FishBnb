@@ -52,7 +52,7 @@ def add_place
 end
 
 def add_availability
-  click_button 'Manage my places'
+  click_link 'Manage my places'
   click_button 'Add availability'
   fill_in :start_date, with: '20/06/2016'
   fill_in :end_date, with: '25/06/2016'

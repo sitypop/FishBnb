@@ -1,15 +1,60 @@
 <html>
 <head>
-  <title>SHEWbnb</title>
+  <title>FISH BNB</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/style.css" type="text/css">
+  <link rel="icon" href="http://imgur.com/Xshhkfb.png">
 </head>
 <body>
+
+  <div id="sign_in">
+    <a href="/"><img src="http://imgur.com/NIKcqIq.png" id="back" class="pull-left"></a>
   <% if current_user %>
-            <h4>Signed in as <%= current_user.username %></h4>
-              <form method='post' action='/sessions'>
-                <input type='hidden' name='_method' value='delete'>
+              <form method='post' action='/sessions' id='signed_in_as'>
+                Signed in as <%= current_user.username %>
+                <input  type='hidden' name='_method' value='delete'>
                 <input type='submit' value='Logout'>
               </form>
+
+             <ul class="breadcrumb navbar-fixed-bottom">
+                 <li><a class="bottom_nav_buttons" href="/requests/sent">View sent requests</a></li>
+                 <li><a class="bottom_nav_buttons" href="/requests/received">View received requests</a></li>
+                 <li><a class="bottom_nav_buttons" href="/places/manage">Manage my places</a></li>
+                 <li><a class="bottom_nav_buttons" href="/places">Places</a></li>
+            </ul>
+
+
+
+               <!-- <li>
+                   <form method='post' action='/requests/sent'>
+                   <input type='hidden' name='id' value='<%= current_user.id %>'>
+                   <input type='submit' value='View sent requests'>
+                 </form>
+               </li>
+                <li>
+                  <form method='post' action='/requests/received'>
+                   <input type='hidden' name='username' value='<%= current_user.username %>'>
+                   <input type='submit' value='View received requests'>
+                 </form>
+               </li>
+               <li>
+                 <form method='get' action='/places/manage'>
+                   <input type='hidden' name='id' value='<%= current_user.id %>'>
+                   <input type='submit' value='Manage my places'>
+                 </form>
+               </li>
+               <li>
+                 <form action='/places'>
+                   <input type='submit' value='Places'>
+                 </form>
+               </li>
+             </ul> -->
     <% end %>
+  </div>
     <% if flash[:errors] && !flash[:errors].empty? %>
        Please refer to the following:
        <ul id='errors'>
