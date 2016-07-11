@@ -24,7 +24,7 @@ This is a little clone of the infamous Air Bnb, renamed Fish BNB in honour of ou
 ## How to Use
 
 ```
-$ git clone https://github.com/sitypop/makers_bnb.git
+$ git clone https://github.com/sitypop/fishbnb.git
 $ cd makers_bnb
 $ bundle
 $ rackup
