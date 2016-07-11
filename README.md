@@ -4,7 +4,7 @@
 
 This is a little clone of the infamous Air Bnb, renamed Fish BNB in honour of our fishy friends. :fish:
 
-![Imgur]()
+![Imgur](http://imgur.com/mlof8AD.png)
 
 
 
